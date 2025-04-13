@@ -1,0 +1,25 @@
+<script>
+    var fired = false;
+    window.addEventListener("scroll", () => {
+        const scrollPercentage = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+
+        if (scrollPercentage >= 0.8 && fired == false) {
+            gtag('event', 'conversion', { 'send_to': 'AW-123/abc' });
+            fired = true; // Remove event listener after alert
+        }
+    });
+</script>
+
+<!-- 70%スクロール用 -->
+<script>
+    var fired = false;
+    if (window.location.pathname == "/") {
+        window.addEventListener("scroll", () => {
+            const scrollPercentage = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+            if (scrollPercentage >= 0.7 && fired == false) {
+                gtag('event', 'conversion', { 'send_to': 'AW-xxx/xxxx' });
+                fired = true; // Remove event listener after alert
+            }
+        });
+    }
+</script>

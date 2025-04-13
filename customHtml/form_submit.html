@@ -1,0 +1,8 @@
+<!-- WPCF7イベントによる計測 -->
+<script>
+    document.addEventListener('wpcf7mailsent', function (event) {
+        dataLayer.push({
+            'event': 'wpcf7mailsent'
+        })
+    }, false); 
+</script>

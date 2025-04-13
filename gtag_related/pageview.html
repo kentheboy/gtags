@@ -1,0 +1,20 @@
+<!-- ページビュー計測 -->
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        if (window.location.pathname === '{{ページパス}}') {
+            gtag('event', 'conversion', { 'send_to': 'AW-{{コンバージョンID}}/{{コンバージョンラベル}}' });
+        }
+    });
+</script>
+
+<!-- ページ滞在時間計測 -->
+<script>
+    if (window.location.href.includes('ここにURL')) {
+        window.addEventListener('DOMContentLoaded', function () {
+            window.setTimeout(timer, 20000);
+            function timer() {
+                gtag('event', 'conversion', { 'send_to': 'AW-123/XXX' });
+            }
+        });
+    }
+</script>

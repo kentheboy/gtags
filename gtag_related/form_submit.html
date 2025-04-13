@@ -1,0 +1,98 @@
+<!-- 送信ボタンクリックによる計測 -->
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        if (window.location.pathname === '{{フォームページパス}}') {
+            document.querySelector('form[action="{{フォーム送信先}}"] button').addEventListener('click', function () {
+                gtag('event', 'conversion', { 'send_to': 'AW-{{CVID}}/{{CVラベル}}' });
+            })
+        }
+    });
+</script>
+
+<!-- 送信完了ページビューによる計測 -->
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        if (window.location.pathname === '{{フォームページパス}}') {
+            gtag('event', 'conversion', { 'send_to': 'AW-{{CVID}}/{{CVラベル}}' });
+        }
+    });
+</script>
+
+<!-- フォーム送信イベントによる計測 -->
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+        if (window.location.href.includes("{{フォームページパス}}")) {
+            var form = document.querySelector('form[action="{{フォーム送信先}}"]');
+            form.addEventListener("submit", function () {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-{{CVID}}/{{CVラベル}}'
+                });
+            })
+        }
+    });
+</script>
+
+<!-- WPCF7イベントによる計測 -->
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        if (window.location.href.includes("{{フォームページパス}}")) {
+            document.addEventListener('wpcf7mailsent', function (event) {
+                gtag('event', 'conversion', { 'send_to': 'AW-{{CVID}}/{{CVラベル}}' });
+            }, false);
+        }
+    });
+</script>
+
+<!-- サンクスメッセージ要素の表示による計測 -->
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        if (document.querySelectorAll('.flex_center.tex_c.mw800.mt32')) {
+            gtag('event', 'conversion', { 'send_to': 'AW-{{CVID}}/{{CVラベル}}' });
+        }
+    });
+</script>
+
+<!-- サンクスメッセージ要素の表示による計測 -->
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        if (document.querySelector('div.flex_center.tex_c.mw800.mt32 > div:nth-child(2)')) {
+            if (document.querySelector('div.flex_center.tex_c.mw800.mt32 > div:nth-child(2)').innerText.includes("お問い合わせありがとうございます。")) {
+                //    gtag('event', 'conversion', { 'send_to': 'AW-{{CVID}}/{{CVラベル}}' });
+                alert();
+            }
+        }
+    });
+</script>
+
+
+<!-- Event snippet for 購買完了 at ColorMe conversion page -->
+<script>
+    gtag('event', 'conversion', {
+        'send_to': 'AW-{{CVID}}/{{CVラベル}}',
+        'value': [TOTAL_AMOUNT],
+        'currency': 'JPY',
+        'transaction_id': '[ORDER_NUM]'
+    });
+</script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        const target = document.querySelector('div.flex_center.tex_c.mw800.mt32 > div:nth-child(2)');
+
+        if (target) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        alert('Element is visible!');
+                        observer.unobserve(target); // Stop observing after first visibility
+                    }
+                });
+            }, {
+                root: null, // Use the viewport as root
+                threshold: 0.1 // Trigger when at least 10% is visible
+            });
+
+            observer.observe(target);
+        }
+    });
+</script>

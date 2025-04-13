@@ -1,0 +1,19 @@
+<script>
+	window.addEventListener("load", function () {
+		// purchase
+		if (window.location.href.includes('order-received')){
+            const id = document.querySelector("XXXXXX").innerText.trim();
+			const price = document.querySelector("XXXXXX").innerText.replace(/(¥)/g, '').trim();
+			gtag(
+                'event', 'conversion', 
+                { 
+                    'send_to': 'AW-123/XYZ',
+				    'value': price,
+				    'currency': 'JPY',
+				    'transaction_id': id
+		    	}
+            );
+		}
+		
+	},);
+</script>

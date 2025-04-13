@@ -1,0 +1,23 @@
+<!-- クリック用 -->
+<script>
+    window.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('[href*="{{クリック移管先URL}}"]').forEach(function (element) {
+            element.addEventListener('click', function () {
+                gtag('event', 'conversion', { 'send_to': 'AW-{{CVID}}/{{CVラベル}}' });
+            });
+        });
+    });
+</script>
+
+<!-- Wixサイト クリック用 -->
+<!-- docs: https://sites.google.com/corp/google.com/newkltag-teamwiki/home/japanese-cms-guide#h.thwmv0u1huxn -->
+<script>
+    document.querySelectorAll('[href*="{{URL}}"]').forEach(function (element) {
+        if (window.location.href.includes("dancetop")) {
+            element.addEventListener('click', function () {
+                gtag('event', 'conversion', { 'send_to': 'AW-{{CVID}}/{{CVラベル}}' });
+            });
+        }
+    });
+</script>
+

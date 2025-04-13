@@ -1,0 +1,147 @@
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-803655450"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'AW-803655450');
+</script>
+
+
+
+<script>
+  var total_price = Colorme.sale.total_price;
+  var transaction_id = Colorme.sale.id;
+
+  gtag('event', 'conversion', {
+    'send_to': 'AW-803655450/chfSCK6b1PYBEJqem_8C',
+    'value': total_price,
+    'currency': 'JPY',
+    'transaction_id': transaction_id
+  });
+</script>
+<!-- Google tag (gtag.js) -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16942675754"></script>
+
+<!-- Google tag (gtag.js) -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16942675754"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'AW-16942675754');
+</script>
+
+<!-- 送信ボタンクリックによる計測 -->
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    if (window.location.pathname === '/contact') {
+      document.querySelector('form button[type="submit"]').addEventListener('click', function () {
+        gtag('event', 'conversion', { 'send_to': 'AW-{{CVID}}/{{CVラベル}}' });
+      })
+    }
+  });
+</script>
+<script>
+  if (window.location.pathname === '/contact') {
+    document.querySelector('form button[type="submit"]').addEventListener('click', function () {
+      gtag('event', 'conversion', { 'send_to': 'AW-16942675754/Q4aYCPC5w7YaEKru8o4_' });
+    })
+  }
+</script>
+
+<!-- 電話クリック用 -->
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[href*="tel"]').forEach(function (element) {
+      element.addEventListener('click', function () {
+        gtag('event', 'conversion', { 'send_to': 'AW-{{CVID}}/{{CVラベル}}' });
+      });
+    });
+  });
+</script>
+<!-- LINEクリック用 -->
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[href*="line.me"]').forEach(function (element) {
+      element.addEventListener('click', function () {
+        gtag('event', 'conversion', { 'send_to': 'AW-{{CVID}}/{{CVラベル}}' });
+      });
+    });
+  });
+</script>
+
+
+<script>
+  window.addEventListener("load", function () {
+    // purchase
+    if (window.location.href.includes('/store/status/') && window.location.href.includes('/confirmation')) {
+      var dataList = document.querySelectorAll(".line-item > p");
+      var value = '';
+      dataList.forEach(function (elm) {
+        if (elm.innerText.includes("注文合計")) {
+          value = elm.nextElementSibling.innerText.replace(/[^0-9]/g, '');
+        }
+      });
+      gtag(
+        'event', 'conversion',
+        {
+          'send_to': 'AW-xxx/xxx',
+          'value': value,
+          'currency': 'JPY',
+        }
+      );
+    }
+  })
+</script>
+
+<script>
+  window.addEventListener("load", function () {
+    // purchase
+    if (window.location.href.includes('/store/status/') && window.location.href.includes('/confirmation')) {
+      var dataList = document.querySelectorAll(".line-item > p");
+      var value = '';
+      dataList.forEach(function (elm) {
+        if (elm.innerText.includes("注文合計")) {
+          value = elm.nextElementSibling.innerText.replace(/[^0-9]/g, '');
+        }
+      });
+      // gtag(
+      //   'event', 'conversion',
+      //   {
+      //     'send_to': 'AW-xxx/xxxx',
+      //     'value': value,
+      //     'currency': 'JPY',
+      //   }
+      // );
+      alert(`price: ${value}`)
+    }
+  })
+</script>
+
+<script>
+  window.navigation.addEventListener("navigate", (event) => {
+
+    if (event.destination.url.includes('/store/status/') && event.destination.url.includes('/confirmation')) {
+      var dataList = document.querySelectorAll(".line-item > p");
+      var value = '';
+      dataList.forEach(function (elm) {
+        if (elm.innerText.includes("注文合計")) {
+          value = elm.nextElementSibling.innerText.replace(/[^0-9]/g, '');
+        }
+      });
+      gtag(
+        'event', 'conversion',
+        {
+          'send_to': 'AW-xxx/xxxx',
+          'value': value,
+          'currency': 'JPY',
+        }
+      );
+    }
+
+  });
+</script>

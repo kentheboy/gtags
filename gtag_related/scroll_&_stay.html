@@ -1,0 +1,22 @@
+<script>
+    var fired = false;
+    // 50%スクロール用
+    if (window.location.pathname == "/pathname") {
+        window.addEventListener("scroll", () => {
+            const scrollPercentage = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+            if (scrollPercentage >= 0.5 && fired == false) {
+                gtag('event', 'conversion', { 'send_to': 'AW-123/xxxx' });
+                fired = true; // Remove event listener after alert
+            }
+        });
+    }
+    // 60秒計測
+    window.addEventListener('DOMContentLoaded', function () {
+        window.setTimeout(timer, 60000);
+        function timer() {
+            if (window.location.pathname == "/pathname" && fired == false) {
+                gtag('event', 'conversion', { 'send_to': 'AW-123/xxxx' });
+            }
+        }
+    });
+</script>
